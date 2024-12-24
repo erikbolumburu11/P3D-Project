@@ -24,7 +24,13 @@ public class IdleState : AgentState
     {
         Vector3 agentPos = agent.transform.position;
         Vector3 playerPos = FindObject.FindPlayer().transform.position;
-        if(Vector3.Distance(agentPos, playerPos) < agent.detectionRange){
+
+        if
+        (
+            Vector3.Distance(agentPos, playerPos) < agent.detectionRange && 
+            Physics.Raycast(agentPos, playerPos - agentPos, agent.detectionRange)  
+        )
+        {
             agent.SetState(new ChaseState(agent));
         }
     }

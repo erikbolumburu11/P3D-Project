@@ -163,7 +163,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d17ae6e8ae030b24c905e38180c2d7d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fireRate: 0.5
+  fireRate: 0.1
+  shotSound: {fileID: 8300000, guid: 348c99f0c7e536b43b3be9febb286188, type: 3}
   projectileVisibleWhenLoaded: 1
   projectileRestTransform: {fileID: 8690137606947942040}
   projectileRestPrefab: {fileID: 1427564110906265784, guid: 4f624e4407ffa224db3757862b5303af, type: 3}

@@ -1,3 +1,4 @@
+using System.Linq;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -19,12 +20,34 @@ public class ChaseState : AgentState
 
     public override void Update()
     {
-        // Logic
-        agent.GetComponent<NavMeshAgent>().SetDestination(FindObject.FindPlayer().transform.position);
-
-        // Transition
         Vector3 agentPos = agent.transform.position;
         Vector3 playerPos = FindObject.FindPlayer().transform.position;
+
+        // Logic
+
+
+        //// Chase
+        agent.GetComponent<NavMeshAgent>().SetDestination(FindObject.FindPlayer().transform.position);
+
+        Vector3[] corners = agent.GetComponent<NavMeshAgent>().path.corners;
+        float pathDistance = 0;
+
+        for (int i = 1; i < corners.Length; i++)
+        {
+            pathDistance += Vector3.Distance(corners[i - 1], corners[i]);
+        }
+
+        if(pathDistance > agent.detectionRange) {
+            agent.SetState(new IdleState(agent));
+            return;
+        }
+
+        //// Attack
+        if(Vector3.Distance(agentPos, playerPos) <= agent.attackRange){
+            agent.GetComponent<Animator>().SetTrigger("Attack");
+        }
+
+        // Transition
         if(Vector3.Distance(agentPos, playerPos) >= agent.detectionRange){
             agent.SetState(new IdleState(agent));
         }

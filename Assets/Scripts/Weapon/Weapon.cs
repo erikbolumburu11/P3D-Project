@@ -7,6 +7,8 @@ public abstract class Weapon : MonoBehaviour
 {
     public float fireRate = 0.25f;
 
+    public AudioClip shotSound;
+
     void Start(){
         Reload();
     }

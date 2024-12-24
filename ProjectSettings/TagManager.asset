@@ -8,6 +8,7 @@ TagManager:
   - FPS Camera
   - Enemy
   - Environment
+  - Audio Data
   layers:
   - Default
   - TransparentFX

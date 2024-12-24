@@ -5,9 +5,10 @@ using UnityEngine.UI;
 
 public class Healthbar : MonoBehaviour
 {
+    [SerializeField] bool HUDElement = false;
     void Update()
     {
-        transform.LookAt(FindObject.FindPlayer().transform);
+        if(!HUDElement) transform.LookAt(FindObject.FindPlayer().transform);
     }
 
     public void SetValue(float amount){

@@ -17,12 +17,15 @@ public class ProjectileWeapon : Weapon
             Destroy(loadedProjectile);
         }
 
-        Transform cameraTransform = FindObject.FindFPSCamera().transform;
+        //Transform cameraTransform = FindObject.FindFPSCamera().transform;
+        Transform cameraTransform = Camera.main.transform;
         GameObject projectile = Instantiate(
             projectileFiredPrefab,
             cameraTransform.position + cameraTransform.forward * 2,
             cameraTransform.rotation
         );
+
+        SoundManager.instance.PlaySFX(shotSound);
     }
 
 

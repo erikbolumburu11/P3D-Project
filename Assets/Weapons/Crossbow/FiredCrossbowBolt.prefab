@@ -135,7 +135,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   shootForce: 150
-  damage: 50
+  damage: 100
 --- !u!96 &6091552655146627828
 TrailRenderer:
   serializedVersion: 3

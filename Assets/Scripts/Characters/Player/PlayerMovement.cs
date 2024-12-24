@@ -51,6 +51,8 @@ public class PlayerMovement : MonoBehaviour
         else rb.drag = airDrag;
 
         if(jumpInput.action.IsPressed()) Jump();
+
+        Debug.Log(grounded);
     }
 
     void FixedUpdate(){

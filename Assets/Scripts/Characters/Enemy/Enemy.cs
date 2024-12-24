@@ -9,6 +9,7 @@ public class Enemy : MonoBehaviour
 
     public float moveSpeed;
     public float detectionRange;
+    public float attackRange;
 
     [Header("Debug")]
     [SerializeField] string currentStateName;
@@ -18,6 +19,7 @@ public class Enemy : MonoBehaviour
 
         animator = GetComponent<Animator>();
         agent = GetComponent<NavMeshAgent>();
+        agent.speed = moveSpeed;
     }
 
     void Update(){
